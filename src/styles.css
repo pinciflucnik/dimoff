@@ -1,0 +1,51 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
+@import url('https://fonts.cdnfonts.com/css/top-speed');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    font: 20px/1.2 "Russo One", sans-serif;
+ }
+ body, ul, li ,a, button, input, textarea, button {
+    font: inherit;
+}
+body {
+    display: flex;
+    justify-content: center;
+}
+img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+button {
+    background: rgb(128, 1, 1);
+    color: white;
+    border-radius: 0.3em;
+    padding: 0.5em 0.5em;
+    margin-top: 1em;
+    cursor: pointer;
+    box-shadow: 0 0 0.3em 0.1em rgba(0,0,0,0.8);
+}
+h1 {
+    font-family: 'Top speed';
+    font-size: 3.5em;
+}
+button:hover {
+    background: rgb(160, 1, 1);
+    color: rgb(230, 230, 230);
+}button:active {
+    background: rgb(61, 10, 10);
+    color: rgb(75, 75, 75);
+}
+button:disabled {
+    background: rgb(117, 117, 117);
+    color: rgb(138, 138, 138);
+    cursor: not-allowed;
+}
+.error {
+    color: rgb(170, 0, 0);
+}

@@ -1,0 +1,35 @@
+<div class="wrapper">
+    <form #form="ngForm" (ngSubmit)="onRegister(form)">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" ngModel #email="ngModel" email required minlength="6" autocomplete="email">
+        <div class="error" *ngIf="email.touched">
+            <div *ngIf="email.errors?.['required']">
+                <p>Email is required!</p>
+            </div>
+            <div *ngIf="email.errors?.['minlength']">
+                <p>Email must be at least 6 symbols</p>
+            </div>
+            <div *ngIf="email.errors?.['email']">
+                <p>Email is not valid</p>
+            </div>
+        </div>
+        <label for="pass">Password</label>
+        <input type="password" id="pass" name="pass" ngModel #pass="ngModel" required minlength="5" autocomplete="new-password">
+        <div class="error" *ngIf="pass.touched">
+            <div *ngIf="pass.errors?.['required']">
+                <p>Password is required</p>
+            </div>
+            <div *ngIf="pass.errors?.['minlength']">
+                <p>Password must be at least 5 symbols</p>
+            </div>
+        </div>
+        <label for="rePass">Repeat Password</label>
+        <input type="password" id="rePass" name="rePass" ngModel #rePass="ngModel" required autocomplete="new-password">
+        <div class="error" *ngIf="rePass.touched">
+            <div *ngIf="pass.value != rePass.value">
+                <p>Passwords don't match</p>
+            </div>
+        </div>
+        <button [disabled]="form.invalid">Register</button>
+    </form>
+</div>

@@ -1,0 +1,27 @@
+.wrapper {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2.5em;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1em
+}
+label {
+    text-align: center;
+}
+input {
+    border-radius: 0.3em;
+    padding: 0.5em 1em;
+    box-shadow: 0 0 0.3em 0.1em rgba(0,0,0,0.8);
+
+}
+.logo-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+}

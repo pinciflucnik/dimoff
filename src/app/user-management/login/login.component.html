@@ -1,0 +1,23 @@
+<div class="wrapper">
+    <div class="logo-wrapper">
+        <div><h1>dimoff</h1></div>
+        <div><h3>автосервиз</h3></div>
+    </div>
+    <form #form="ngForm" (ngSubmit)="onLogin(form)">
+        <label for="email">Email</label>
+        <input type="email" name="email" ngModel #email="ngModel" email required autocomplete="email">
+        <div class="error" *ngIf="email.touched">
+            <div *ngIf="email.errors?.['required']">
+                <p>Email e задължителен!</p>
+            </div>
+        </div>
+        <label for="pass">Парола</label>
+        <input type="password" id="pass" name="pass" ngModel #pass="ngModel" required minlength="5" autocomplete="new-password">
+        <div class="error" *ngIf="pass.touched">
+            <div *ngIf="pass.errors?.['required']">
+                <p>Паролата е задължителна!</p>
+            </div>
+        </div>
+        <button [disabled]="form.invalid">Login</button>
+    </form>
+</div>
