@@ -15,7 +15,7 @@ export class LoginComponent {
     const { email, pass} = form.value;
     return this.userService.login(email, pass).subscribe({
       next: (res) => {
-        this.router.navigate([''])
+        this.router.navigate(['/main'])
       },
       error: err => {
         alert(err.message)

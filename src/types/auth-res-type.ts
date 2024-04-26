@@ -5,7 +5,8 @@ export interface LoginResponse {
     idToken: string,
     registered: boolean,
     refreshToken: string,
-    expiresIn: string
+    expiresIn: string,
+    email: string,
 }
 export interface RegisterResponse {
     kind: string,

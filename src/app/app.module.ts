@@ -9,19 +9,19 @@ import { UserManagementModule } from './user-management/user-management/user-man
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { appInterceptorProvider } from './app.interceptor';
+import { DataManagementModule } from './data-management/data-management.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    RegisterComponent,
-    LoginComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     UserManagementModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    DataManagementModule
     
   ],
   providers: [appInterceptorProvider],
