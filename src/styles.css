@@ -21,7 +21,7 @@ img {
     height: auto;
     display: block;
 }
-button {
+button, a {
     background: rgb(128, 1, 1);
     color: white;
     border-radius: 0.3em;
@@ -34,7 +34,10 @@ h1 {
     font-family: 'Top speed';
     font-size: 3.5em;
 }
-button:hover {
+a {
+    text-decoration: none;
+}
+button:hover, a:hover {
     background: rgb(160, 1, 1);
     color: rgb(230, 230, 230);
 }button:active {

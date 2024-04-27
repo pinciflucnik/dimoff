@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { constants } from '../constants/constants';
 import { BehaviorSubject, Subscription, tap, TimeoutInfo } from 'rxjs';
 import { LoginResponse, RegisterResponse } from 'src/types/auth-res-type';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +13,9 @@ export class UserService implements OnDestroy {
   user$ = this.user$$.asObservable();
   userToken: string| undefined;
   subscription: Subscription;
+  elapsed: number = 0;
   timeOutID: ReturnType<typeof setTimeout> | undefined;
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private router: Router) {
     this.subscription = this.user$.subscribe((token) => {
       this.userToken = token?.idToken
     })
@@ -38,12 +40,13 @@ export class UserService implements OnDestroy {
 
     return this.http.post<LoginResponse>(constants.login_URL, JSON.stringify(payload))
     .pipe(tap((res)=> {
-      console.log(res);
       this.user$$.next(res)
-      console.log(this.userToken);
       sessionStorage.setItem("user", res.email)
       sessionStorage.setItem("token", res.idToken)
-      this.timeOutID = setTimeout(()=> {sessionStorage.clear()} ,36000000)
+      this.timeOutID = setTimeout(()=> {
+        sessionStorage.clear();
+        this.router.navigate(["/login"]);        
+      } ,3600000)
     }))
   }
   getProfile(){
@@ -52,7 +55,6 @@ export class UserService implements OnDestroy {
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe()
-    clearTimeout(this.timeOutID)
   }
 
 }

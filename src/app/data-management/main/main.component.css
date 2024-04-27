@@ -1,0 +1,11 @@
+.wrapper{
+    display: flex;
+    gap: 2em;
+    align-items: center;
+    margin: 1em 2em;
+    min-height: 50vh;
+}
+.wrapper a {
+    padding: 0.5em 1em;
+    text-align: center;
+}
