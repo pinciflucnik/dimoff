@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { PartsListResponseType, PartsListType } from 'src/types/api-res-types';
 import { ApiService } from '../services/api.service';
 
@@ -15,12 +16,12 @@ export class PartsListComponent implements OnInit {
   ngOnInit(): void {
     this.api.getParts().subscribe({
       next: (res) => {
+        this.list = [{'id': '', 'name': ''}];
         let entries = Object.entries(res);
         this.list.pop();
         for (const entry of entries) {
           this.list?.push({'id': entry[0], 'name': entry[1].name})
         }
-        console.log(this.list);
       },
       error: err => {
         alert(err.message)
@@ -31,7 +32,7 @@ export class PartsListComponent implements OnInit {
     const { partName } = form.value;
     return this.api.addPart(partName).subscribe({
       next: (res) => {
-        form.value.partName = '';
+        form.reset();
         this.ngOnInit()
       },
       error: err => {
@@ -40,6 +41,13 @@ export class PartsListComponent implements OnInit {
     })
   }
   onDelete(id: string){
-    id = '';
+    return this.api.deletePart(id).subscribe({
+      next: (res) => {
+        this.ngOnInit()
+      },
+      error: err => {
+        alert(err.message);
+      }
+    })
   }
 }

@@ -18,4 +18,7 @@ export class ApiService {
   getParts(){
     return this.http.get<PartsListResponseType>(`${constants.base_URL}parts.json?auth=${this.currentToken}`);
   }
+  deletePart(partId: string){
+    return this.http.delete(`${constants.base_URL}parts/${partId}.json?auth=${this.currentToken}`)
+  }
 }
