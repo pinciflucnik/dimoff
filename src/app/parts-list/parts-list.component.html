@@ -1,0 +1,17 @@
+<div class="wrapper">
+    <form #form="ngForm" (ngSubmit)="newPart(form)">
+        <label for="partName">Наименование</label>
+        <input type="text" ngModel required id="partName" name="partName">
+        <button>Добави</button>
+    </form>
+    <div class="parts-table">
+        <table>
+            <tbody>
+                <tr *ngFor="let part of list">
+                    <td>{{part.name}}</td>
+                    <td><button (click)="onDelete(part.id)"><i class="fa-solid fa-trash-can"></i></button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

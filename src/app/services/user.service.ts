@@ -14,7 +14,7 @@ export class UserService implements OnDestroy {
   userToken: string| undefined;
   subscription: Subscription;
   elapsed: number = 0;
-  timeOutID: ReturnType<typeof setTimeout> | undefined;
+  // timeOutID: ReturnType<typeof setTimeout> | undefined;
   constructor(private http: HttpClient, private router: Router) {
     this.subscription = this.user$.subscribe((token) => {
       this.userToken = token?.idToken
@@ -41,12 +41,12 @@ export class UserService implements OnDestroy {
     return this.http.post<LoginResponse>(constants.login_URL, JSON.stringify(payload))
     .pipe(tap((res)=> {
       this.user$$.next(res)
-      sessionStorage.setItem("user", res.email)
-      sessionStorage.setItem("token", res.idToken)
-      this.timeOutID = setTimeout(()=> {
+      sessionStorage.setItem("user", res.email),
+      sessionStorage.setItem("token", res.idToken),
+      setTimeout(()=> {
         sessionStorage.clear();
         this.router.navigate(["/login"]);        
-      } ,3600000)
+      } ,36000);
     }))
   }
   getProfile(){
