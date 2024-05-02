@@ -12,7 +12,7 @@ const routes: Routes = [
   {path: 'register', component: RegisterComponent},
   {path: 'login', component: LoginComponent, canActivate: [loggedInGuard]},
   {path: 'main', component: MainComponent, canActivate: [notLoggedInGuard]},
-  {path: 'parts-list', component: PartsListComponent, canActivate: [notLoggedInGuard]}
+  {path: 'dimoff/parts-list', component: PartsListComponent, canActivate: [notLoggedInGuard]}
 ];
 
 @NgModule({
