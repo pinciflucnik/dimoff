@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { PartsListType } from 'src/types/api-res-types';
-import { ApiService } from '../services/api.service';
+import { ApiService } from '../../services/api.service';
 
 
 @Component({

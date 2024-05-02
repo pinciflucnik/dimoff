@@ -10,13 +10,12 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { appInterceptorProvider } from './app.interceptor';
 import { DataManagementModule } from './data-management/data-management.module';
-import { PartsListComponent } from './parts-list/parts-list.component';
 import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PartsListComponent,
+    
   ],
   imports: [
     BrowserModule,
