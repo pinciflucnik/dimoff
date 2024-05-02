@@ -53,3 +53,23 @@ button:disabled {
 .error {
     color: rgb(170, 0, 0);
 }
+@media (max-width:600px){
+    body {
+        font-size: 14px;
+        background-color: rgb(161, 161, 161);
+    }
+    input {
+        background-color: rgb(216, 216, 216);
+    }
+
+}
+@media (max-width:250px){
+    body {
+        font-size: 12px;
+        background-color: rgb(161, 161, 161);
+    }
+    input {
+        background-color: rgb(216, 216, 216);
+    }
+
+}
