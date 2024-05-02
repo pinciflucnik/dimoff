@@ -1,21 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { ApiService } from 'src/app/services/api.service';
 import { ListType } from 'src/types/api-res-types';
-import { ApiService } from '../../services/api.service';
-
 
 @Component({
-  selector: 'app-parts-list',
-  templateUrl: './parts-list.component.html',
-  styleUrls: ['./parts-list.component.css']
+  selector: 'app-activity-list',
+  templateUrl: './activity-list.component.html',
+  styleUrls: ['./activity-list.component.css']
 })
-export class PartsListComponent implements OnInit {
-  isLoading: boolean = false
+export class ActivityListComponent implements OnInit {
+  isLoading: boolean = false;
   list: [ListType] = [{'id': '', 'name': ''}]
   constructor(private api: ApiService){}
   ngOnInit(): void {
     this.isLoading = true;
-    this.api.getParts().subscribe({
+    this.api.getActivities().subscribe({
       next: (res) => {
         this.list = [{'id': '', 'name': ''}];
         let entries = Object.entries(res);
@@ -30,9 +29,9 @@ export class PartsListComponent implements OnInit {
       }
     })
   }
-  newPart(form: NgForm){
+  newActivity(form: NgForm){
     const { partName } = form.value;
-    return this.api.addPart(partName).subscribe({
+    return this.api.addActivity(partName).subscribe({
       next: (res) => {
         form.reset();
         this.ngOnInit()
@@ -43,7 +42,7 @@ export class PartsListComponent implements OnInit {
     })
   }
   onDelete(id: string){
-    return this.api.deletePart(id).subscribe({
+    return this.api.deleteActivity(id).subscribe({
       next: (res) => {
         this.ngOnInit()
       },

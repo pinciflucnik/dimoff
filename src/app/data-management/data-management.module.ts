@@ -4,13 +4,15 @@ import { MainComponent } from './main/main.component';
 import { PartsListComponent } from './parts-list/parts-list.component';
 import { SharedModule } from '../shared/shared.module';
 import { FormsModule } from '@angular/forms';
+import { ActivityListComponent } from './activity-list/activity-list.component';
 
 
 
 @NgModule({
   declarations: [
     MainComponent,
-    PartsListComponent
+    PartsListComponent,
+    ActivityListComponent
   ],
   imports: [
     CommonModule,
@@ -19,7 +21,8 @@ import { FormsModule } from '@angular/forms';
   ],
   exports: [
     MainComponent,
-    PartsListComponent
+    PartsListComponent,
+    ActivityListComponent
   ]
 })
 export class DataManagementModule { }

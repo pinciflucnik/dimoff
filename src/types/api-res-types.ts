@@ -1,7 +1,7 @@
-export interface PartsListResponseType {
+export interface ListResponseType {
    name: string 
 }
-export interface PartsListType {
+export interface ListType {
     id: string,
    name: string 
 }
