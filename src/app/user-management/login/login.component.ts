@@ -9,9 +9,10 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-
+  isLoading: boolean = false
   constructor (private router: Router, private userService: UserService){}
   onLogin(form: NgForm){
+    this.isLoading = true;
     const { email, pass} = form.value;
     return this.userService.login(email, pass).subscribe({
       next: (res) => {

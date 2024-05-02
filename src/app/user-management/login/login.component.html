@@ -1,4 +1,4 @@
-<div class="wrapper">
+<div class="wrapper" *ngIf="!isLoading">
     <div class="logo-wrapper">
         <div><h1>dimoff</h1></div>
         <div><h3>автосервиз</h3></div>
@@ -20,4 +20,8 @@
         </div>
         <button [disabled]="form.invalid">Login</button>
     </form>
+</div>
+<div class="wrapper" *ngIf="isLoading">
+    <app-loader />
+    <div><p>LOADING</p></div>
 </div>

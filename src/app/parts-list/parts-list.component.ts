@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
-import { PartsListResponseType, PartsListType } from 'src/types/api-res-types';
+import { PartsListType } from 'src/types/api-res-types';
 import { ApiService } from '../services/api.service';
 
 
@@ -11,9 +10,11 @@ import { ApiService } from '../services/api.service';
   styleUrls: ['./parts-list.component.css']
 })
 export class PartsListComponent implements OnInit {
+  isLoading: boolean = false
   list: [PartsListType] = [{'id': '', 'name': ''}]
   constructor(private api: ApiService){}
   ngOnInit(): void {
+    this.isLoading = true;
     this.api.getParts().subscribe({
       next: (res) => {
         this.list = [{'id': '', 'name': ''}];
@@ -22,6 +23,7 @@ export class PartsListComponent implements OnInit {
         for (const entry of entries) {
           this.list?.push({'id': entry[0], 'name': entry[1].name})
         }
+        this.isLoading = false;
       },
       error: err => {
         alert(err.message)

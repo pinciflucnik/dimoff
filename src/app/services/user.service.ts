@@ -41,12 +41,12 @@ export class UserService implements OnDestroy {
     return this.http.post<LoginResponse>(constants.login_URL, JSON.stringify(payload))
     .pipe(tap((res)=> {
       this.user$$.next(res)
-      sessionStorage.setItem("user", res.email),
-      sessionStorage.setItem("token", res.idToken),
-      setTimeout(()=> {
-        sessionStorage.clear();
-        this.router.navigate(["/login"]);        
-      } ,36000);
+      sessionStorage.setItem("user", res.email);
+      sessionStorage.setItem("token", res.idToken);
+      // setTimeout(()=> {
+      //   sessionStorage.clear();
+      //   this.router.navigate(["/login"]);        
+      // } ,3600000);
     }))
   }
   getProfile(){

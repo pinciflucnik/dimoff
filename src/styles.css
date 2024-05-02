@@ -53,6 +53,18 @@ button:disabled {
 .error {
     color: rgb(170, 0, 0);
 }
+.wrapper {
+    min-height: 85vh;
+}
+.special {
+    font-family: 'Top speed';
+}
+.footer {
+    display: flex;
+    gap: 2em;
+    margin-top: auto;
+    padding: 2em;
+}
 @media (max-width:600px){
     body {
         font-size: 14px;
@@ -60,6 +72,11 @@ button:disabled {
     }
     input {
         background-color: rgb(216, 216, 216);
+    }
+    .wrapper {
+        align-items: center;
+        justify-content: center;
+        min-height: 85vh;
     }
 
 }

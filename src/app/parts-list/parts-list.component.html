@@ -4,7 +4,7 @@
         <input type="text" ngModel required id="partName" name="partName">
         <button>Добави</button>
     </form>
-    <div class="parts-table">
+    <div class="parts-table" *ngIf="!isLoading">
         <table>
             <tbody>
                 <tr *ngFor="let part of list">
@@ -13,5 +13,8 @@
                 </tr>
             </tbody>
         </table>
+    </div>
+    <div class="part-loader" *ngIf="isLoading">
+        <app-loader />
     </div>
 </div>

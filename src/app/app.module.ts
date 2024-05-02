@@ -11,11 +11,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { appInterceptorProvider } from './app.interceptor';
 import { DataManagementModule } from './data-management/data-management.module';
 import { PartsListComponent } from './parts-list/parts-list.component';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PartsListComponent
+    PartsListComponent,
   ],
   imports: [
     BrowserModule,
@@ -23,7 +24,8 @@ import { PartsListComponent } from './parts-list/parts-list.component';
     UserManagementModule,
     FormsModule,
     HttpClientModule,
-    DataManagementModule
+    DataManagementModule,
+    SharedModule
     
   ],
   providers: [appInterceptorProvider],
