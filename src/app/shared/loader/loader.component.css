@@ -1,3 +1,9 @@
+.loader-wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3em;
+}
 .loader {
     width: 50px;
     aspect-ratio: 1;

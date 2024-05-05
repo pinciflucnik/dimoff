@@ -1,0 +1,66 @@
+<div class="wrapper">
+    <form #form="ngForm" (ngSubmit)="addClient(form)">
+        <div class="inner-wrapper">
+            <div class="personal-details">
+                <h4>Клиент</h4>
+                <label for="clientName">Име</label>
+                <input type="text" ngModel required id="clientName" name="clientName">
+                <label for="phone">Телефон</label>
+                <input type="tel" ngModel required id="phone" name="phone">
+            </div>
+            <div class="car-details">
+                <h4>Автомобил</h4>
+                <label for="make">Марка</label>
+                <input type="text" ngModel required id="make" name="make">
+                <label for="model">Модел</label>
+                <input type="text" ngModel required id="model" name="model">
+                <label for="vin">VIN / Рама</label>
+                <input type="text" ngModel required id="vin" name="vin">
+                <label for="rego">Регистрационен номер</label>
+                <input type="text" ngModel required id="rego" name="rego">
+            </div>
+        </div>
+        <button [disabled]="form.invalid">Добави клиент</button>
+    </form>
+    <app-loader *ngIf="isLoading" />
+    <div class="list" *ngIf="!isLoading">
+        <table>
+            <div class="client" *ngFor="let client of clientList">
+                <tr >
+                    <a (click)="onToggle(client._id)">
+                        <td>{{client.name}}</td>
+                        <td><i class="fa-solid fa-square-phone"></i> {{client.phone}}</td>
+                    </a>
+                    <td *ngIf="showMore && toggledIds.includes(client._id!)"><button (click)="onEdit(client._id!)"><i class="fa-solid fa-pen"></i></button></td>
+                    <td *ngIf="showMore && toggledIds.includes(client._id!)"><button (click)="carToggle(client._id!)"><i class="fa-solid fa-plus"></i><i class="fa-solid fa-car"></i></button></td>
+                </tr>
+                <div class="details" *ngIf="showMore && toggledIds.includes(client._id!)">
+                    <tr *ngFor="let car of client.cars">
+                        <td>{{car.rego}}</td>
+                        <td>{{car.make}}</td>
+                        <td>{{car.model}}</td>
+                        <td>{{car.vin}}</td>
+                        <td><button (click)="onDelete(client._id!, car.rego)"><i class="fa-solid fa-trash-can"></i></button></td>
+                    </tr>
+                </div>
+            </div>
+        </table>
+    </div>
+    <div class="new-car" *ngIf="addCar">
+        <div class="close"><button (click)="carToggle('close')"><i class="fa-solid fa-xmark"></i></button></div>
+        <form #newCarForm="ngForm" (ngSubmit)="onAddCar(newCarForm)">
+            <div class="car-details">
+                <h4>Добави Автомобил</h4>
+                <label for="make">Марка</label>
+                <input type="text" ngModel required id="make" name="make">
+                <label for="model">Модел</label>
+                <input type="text" ngModel required id="model" name="model">
+                <label for="vin">VIN / Рама</label>
+                <input type="text" ngModel required id="vin" name="vin">
+                <label for="rego">Регистрационен номер</label>
+                <input type="text" ngModel required id="rego" name="rego">
+            </div>
+            <button [disabled]="newCarForm.invalid">Добави автомобил</button>
+</form>
+    </div>
+</div>

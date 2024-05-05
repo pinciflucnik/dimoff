@@ -7,6 +7,8 @@ import { PartsListComponent } from './data-management/parts-list/parts-list.comp
 import { LoginComponent } from './user-management/login/login.component';
 import { RegisterComponent } from './user-management/register/register.component';
 import { ActivityListComponent } from './data-management/activity-list/activity-list.component';
+import { ClientsComponent } from './data-management/clients/clients.component';
+import { EditClientComponent } from './data-management/edit-client/edit-client.component';
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'login'},
@@ -15,6 +17,8 @@ const routes: Routes = [
   {path: 'main', component: MainComponent, canActivate: [notLoggedInGuard]},
   {path: 'dimoff/parts-list', component: PartsListComponent, canActivate: [notLoggedInGuard]},
   {path: 'dimoff/activities-list', component: ActivityListComponent, canActivate: [notLoggedInGuard]},
+  {path: 'dimoff/clients-list', component: ClientsComponent, canActivate: [notLoggedInGuard]},
+  {path: 'dimoff/edit/:id', component: EditClientComponent, canActivate: [notLoggedInGuard]},
 ];
 
 @NgModule({

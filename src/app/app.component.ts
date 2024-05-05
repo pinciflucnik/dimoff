@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { UserService } from './services/user.service';
 
 @Component({
@@ -8,4 +9,8 @@ import { UserService } from './services/user.service';
 })
 export class AppComponent{
   title = 'autoserviceHelper';
+  isLogged : boolean = false
+  constructor(private userService: UserService, private router: Router){
+    this.isLogged = !!!this.userService.getProfile()
+  }
 }

@@ -2,7 +2,7 @@
     <form #form="ngForm" (ngSubmit)="newActivity(form)">
         <label for="partName">Наименование</label>
         <input type="text" ngModel required id="partName" name="partName">
-        <button>Добави</button>
+        <button [disabled]="form.invalid">Добави</button>
     </form>
     <div class="parts-table" *ngIf="!isLoading">
         <table>

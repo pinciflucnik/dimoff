@@ -1,7 +1,7 @@
-import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HTTP_INTERCEPTORS } from "@angular/common/http";
+import { HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { Injectable, Provider } from "@angular/core";
 import { Router } from "@angular/router";
-import { Observable } from "rxjs";
+import { catchError, Observable, throwError } from "rxjs";
 // import { host } from "./constants/api.constant";
 
 // const {apiUrl} = host;
@@ -16,7 +16,7 @@ export class AppInterceptor implements HttpInterceptor {
         //         withCredentials: true,
         //     })
         // }
-        return next.handle(req) 
+        return next.handle(req)
     }
 }
 

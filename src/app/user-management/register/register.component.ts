@@ -10,18 +10,18 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class RegisterComponent {
   constructor ( private router: Router, private userService: UserService){}
-  onRegister(form: NgForm){
-    const {email, pass, rePass} = form.value;
-    if (rePass !== pass){
-      return;
-    }
-    return this.userService.register(email, pass).subscribe({
-      next: (res) => {
-        this.router.navigate([''])
-      },
-      error: err => {
-        alert(err.message)
-      }
-    })
-  }
+  // onRegister(form: NgForm){
+  //   const {email, pass, rePass} = form.value;
+  //   if (rePass !== pass){
+  //     return;
+  //   }
+  //   return this.userService.register(email, pass).subscribe({
+  //     next: (res) => {
+  //       this.router.navigate([''])
+  //     },
+  //     error: err => {
+  //       alert(err.message)
+  //     }
+  //   })
+  // }
 }

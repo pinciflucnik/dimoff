@@ -1,0 +1,15 @@
+<div class="wrapper">
+    <form [formGroup]="editForm" (ngSubmit)="onEdit()">
+        <div class="inner-wrapper">
+            <div class="personal-details">
+                <h4>Клиент</h4>
+                <label for="clientName">Име</label>
+                <input type="text" [formControl]="clientName" required id="clientName" name="clientName" value="client!.name">
+                <label for="phone">Телефон</label>
+                <input type="tel" [formControl]="phone" required id="phone" name="phone" [value]="client!.phone">
+            </div>
+        </div>
+        <button>Промени клиент</button>
+    </form>
+
+</div>

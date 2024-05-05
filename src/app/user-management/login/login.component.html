@@ -5,7 +5,7 @@
     </div>
     <form #form="ngForm" (ngSubmit)="onLogin(form)">
         <label for="email">Email</label>
-        <input type="email" name="email" ngModel #email="ngModel" email required autocomplete="email">
+        <input type="email" name="email" id="email" ngModel #email="ngModel" email required autocomplete="email">
         <div class="error" *ngIf="email.touched">
             <div *ngIf="email.errors?.['required']">
                 <p>Email e задължителен!</p>

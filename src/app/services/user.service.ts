@@ -13,7 +13,7 @@ export class UserService implements OnDestroy {
   user$ = this.user$$.asObservable();
   userToken: string| undefined;
   subscription: Subscription;
-  elapsed: number = 0;
+  // elapsed: number = 0;
   // timeOutID: ReturnType<typeof setTimeout> | undefined;
   constructor(private http: HttpClient, private router: Router) {
     this.subscription = this.user$.subscribe((token) => {
@@ -21,15 +21,15 @@ export class UserService implements OnDestroy {
     })
   }
 
-  register(email: string, password: string){
-    const payload = {
-      email,
-      password,
-      "returnSecureToken": true 
-    }
+  // register(email: string, password: string){
+  //   const payload = {
+  //     email,
+  //     password,
+  //     "returnSecureToken": true 
+  //   }
 
-    return this.http.post<RegisterResponse>(constants.register_URL, JSON.stringify(payload)).pipe(tap((res)=> this.user$$.next(res)))
-  }
+  //   return this.http.post<RegisterResponse>(constants.register_URL, JSON.stringify(payload)).pipe(tap((res)=> this.user$$.next(res)))
+  // }
 
   login(email: string, password: string){
     const payload = {
@@ -46,7 +46,7 @@ export class UserService implements OnDestroy {
       // setTimeout(()=> {
       //   sessionStorage.clear();
       //   this.router.navigate(["/login"]);        
-      // } ,3600000);
+      // } ,10000);
     }))
   }
   getProfile(){

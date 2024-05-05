@@ -1,0 +1,83 @@
+table a {
+    text-decoration: none;
+    background: none;
+    border: none;
+    box-shadow: none;
+    margin-top: 0;
+    padding: 0;
+    display: flex;
+    gap: 2em;
+    align-items: center;
+}
+form, .wrapper, .personal-details, .car-details {
+    display: flex;
+    flex-direction: column;
+}
+h4 {
+    text-align: center;
+}
+label {
+    text-align: left;
+}
+input {
+    border-radius: 0.3em;
+    padding: 0.5em 1em;
+    box-shadow: 0 0 0.3em 0.1em rgba(0,0,0,0.8);
+
+}
+.inner-wrapper{
+    display: flex;
+    justify-content: space-around;
+}
+.personal-details, .car-details {
+    justify-content: space-between;
+}
+.car-details{
+    gap: 0.3em
+}
+.list {
+    margin-top: 1em;
+    padding-top: 1em;
+    border-top: 2px solid black;
+}
+table tr {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2em;
+    min-width: 85vw;
+}
+table td button {
+    margin-top: 0;
+}
+.client, .details {
+    padding: 1em 0em;
+}
+.client {
+    border-bottom: 2px solid black;
+}
+.details tr td {
+    min-width: 20%;
+}
+.close {
+    display: flex;
+    justify-content: flex-end;
+}
+.new-car {
+    position: absolute;
+    top: 30%;
+    left: 30%;
+    background-color: rgb(190, 190, 190);
+    padding: 2em;
+    border-radius: 0.3em;
+    box-shadow: 0 0 0.3em 0.1em rgba(0,0,0,0.8);
+}
+@media (max-width: 600px){
+    .inner-wrapper{
+        flex-direction: column;
+        gap: 1em
+    }
+    .new-car {
+        top: 50%
+    }
+}

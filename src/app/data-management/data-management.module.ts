@@ -3,8 +3,10 @@ import { CommonModule } from '@angular/common';
 import { MainComponent } from './main/main.component';
 import { PartsListComponent } from './parts-list/parts-list.component';
 import { SharedModule } from '../shared/shared.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ActivityListComponent } from './activity-list/activity-list.component';
+import { ClientsComponent } from './clients/clients.component';
+import { EditClientComponent } from './edit-client/edit-client.component';
 
 
 
@@ -12,12 +14,15 @@ import { ActivityListComponent } from './activity-list/activity-list.component';
   declarations: [
     MainComponent,
     PartsListComponent,
-    ActivityListComponent
+    ActivityListComponent,
+    ClientsComponent,
+    EditClientComponent
   ],
   imports: [
     CommonModule,
     SharedModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports: [
     MainComponent,
